@@ -1,4 +1,4 @@
-var simple = require('../lib/script');
+var simple = require('../lib/app');
 var expect = require('expect.js');
 
 describe("simple", function(){
