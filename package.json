@@ -1,0 +1,31 @@
+{
+  "name": "notifications-server",
+  "version": "0.1.0",
+  "description": "Microservice to send app notifications to clients",
+  "main": "app.js",
+  "dependencies": {
+    "body-parser": "^1.15.2",
+    "express": "^4.14.0",
+    "redis": "^2.6.2",
+    "socket.io": "^1.4.8"
+  },
+    "devDependencies": {
+    "expect.js": "^0.3.1",
+    "mocha": "^2.1.0",
+    "istanbul": "^0.3.2",
+    "codecov": "^1.0.0"
+  },
+  "scripts": {
+    "test": "istanbul cover node_modules/mocha/bin/_mocha && codecov"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/3Blades/notifications-server.git"
+  },
+  "author": "ecruz@3blades.io",
+  "license": "AGPL-3",
+  "bugs": {
+    "url": "https://github.com/3Blades/notifications-server/issues"
+  },
+  "homepage": "https://github.com/3Blades/notifications-server#readme"
+}

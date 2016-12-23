@@ -1,0 +1,24 @@
+branches:  
+  only:
+    - master
+services:  
+#Enable docker service inside travis
+  - docker
+before_install:  
+  
+script: 
+  - docker --version  # document the version travis is using
+  - pip install --user awscli # install aws cli w/o sudo
+  - export PATH=$PATH:$HOME/.local/bin # put aws in the path
+  - eval $(aws ecr get-login --region us-east-1) #needs AWS_ACCESS_KEY_ID and AWS_SECRET_ACCESS_KEY envvars
+after_script:
+  #build the image
+  - docker build --no-cache -t $DOCKER_IMAGE_NAME .
+  # tag the build as latest
+  - docker tag $DOCKER_IMAGE_NAME $DOCKER_IMAGE_NAME:latest 
+  - docker tag $DOCKER_IMAGE_NAME $DOCKER_IMAGE_NAME:build-$TRAVIS_BUILD_NUMBER
+  # push  both images
+  - docker push $DOCKER_IMAGE_NAME:build-$TRAVIS_BUILD_NUMBER
+  - docker push $DOCKER_IMAGE_NAME:latest
+env:
+  - $DOCKER_IMAGE_NAME="860100747351.dkr.ecr.us-east-1.amazonaws.com/notifications-server"
