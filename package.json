@@ -1,7 +1,7 @@
 {
-  "name": "notifications-server",
-  "version": "0.1.0",
-  "description": "Microservice to send app notifications to clients",
+  "name": "real-time-notifications-server",
+  "version": "1.0.0",
+  "description": "Microservice to emit the hubserver notifications to the clients",
   "main": "app.js",
   "dependencies": {
     "body-parser": "^1.15.2",
@@ -9,23 +9,19 @@
     "redis": "^2.6.2",
     "socket.io": "^1.4.8"
   },
-    "devDependencies": {
-    "expect.js": "^0.3.1",
-    "mocha": "^2.1.0",
-    "istanbul": "^0.3.2",
-    "codecov": "^1.0.0"
-  },
+  "devDependencies": {},
   "scripts": {
-    "test": "istanbul cover node_modules/mocha/bin/_mocha && codecov"
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "start": "node app.js"
   },
   "repository": {
     "type": "git",
-    "url": "git+https://github.com/3Blades/notifications-server.git"
+    "url": "git+https://github.com/3Blades/realtime-server.git"
   },
   "author": "ecruz@3blades.io",
-  "license": "AGPL-3.0",
+  "license": "ISC",
   "bugs": {
-    "url": "https://github.com/3Blades/notifications-server/issues"
+    "url": "https://github.com/3Blades/realtime-server/issues"
   },
-  "homepage": "https://github.com/3Blades/notifications-server#readme"
+  "homepage": "https://github.com/3Blades/realtime-server#readme"
 }

@@ -12,7 +12,7 @@ services:
 script: 
   - docker --version  # document the version travis is using
   - export PATH=$PATH:$HOME/.local/bin # put aws in the path
-  - docker login -u $DOCKER_USERNAME -p $DOCKER_PASSWORD -e $DOCKER_EMAIL
+  - docker login -u $DOCKER_USERNAME -p $DOCKER_PASSWORD
 
 after_script:
   #build the image
