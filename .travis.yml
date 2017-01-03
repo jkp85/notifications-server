@@ -9,20 +9,6 @@ branches:
 services:
   - docker
 
-sudo: false
-
-cache:
-  directories:
-    - node_modules
-
-before_install:
-  - "npm config set spin false"
-  - "npm install -g npm@^2"
-  - "npm install -g codecov"
-
-install:
-  - npm install
-
 script: 
   - docker --version  # document the version travis is using
   - export PATH=$PATH:$HOME/.local/bin # put aws in the path
@@ -37,9 +23,6 @@ after_script:
   # push  both images
   - docker push $DOCKER_IMAGE_NAME:build-$TRAVIS_BUILD_NUMBER
   - docker push $DOCKER_IMAGE_NAME:latest
-
-script:
-  - npm test
   
 after_success:
   - bash <(curl -s https://codecov.io/bash)
