@@ -6,6 +6,9 @@ branches:
   only:
     - master
 
+services:
+  - docker
+
 sudo: false
 
 cache:
@@ -20,6 +23,21 @@ before_install:
 install:
   - npm install
 
+script: 
+  - docker --version  # document the version travis is using
+  - export PATH=$PATH:$HOME/.local/bin # put aws in the path
+  - docker login -u $DOCKER_USERNAME -p $DOCKER_PASSWORD -e $DOCKER_EMAIL
+
+after_script:
+  #build the image
+  - docker build --no-cache -t $DOCKER_IMAGE_NAME .
+  # tag the build as latest
+  - docker tag $DOCKER_IMAGE_NAME $DOCKER_IMAGE_NAME:latest 
+  - docker tag $DOCKER_IMAGE_NAME $DOCKER_IMAGE_NAME:build-$TRAVIS_BUILD_NUMBER
+  # push  both images
+  - docker push $DOCKER_IMAGE_NAME:build-$TRAVIS_BUILD_NUMBER
+  - docker push $DOCKER_IMAGE_NAME:latest
+
 script:
   - npm test
   
@@ -28,3 +46,6 @@ after_success:
 
 notifications:
   slack: 3blades:5FcBR6tunJB8Kx8oi0rKl92J
+
+env:
+  - $DOCKER_IMAGE_NAME="3blades/notifications-server"
