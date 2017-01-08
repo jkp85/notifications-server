@@ -3,5 +3,17 @@
 [![Requirements Status](https://requires.io/github/3Blades/notifications-server/requirements.svg?branch=master)](https://requires.io/github/3Blades/notifications-server/requirements/?branch=master)
 [![slack in](https://slackin-tkscnxhpky.now.sh/badge.svg)](https://slackin-tkscnxhpky.now.sh/)
 
-# notifications-server
-:loudspeaker: real-time notifications w/ websockets
+# Notifications Server
+
+Notifications server is a small NodeJs real time notifications with websockets.
+
+This service is used mostly for real time server status updates.
+
+## Copyright and license
+
+Copyright © 2016-2017 3Blades, LLC. All rights reserved, except as follows. Code
+is released under the BSD 3.0 license. The README.md file, and files in the
+"docs" folder are licensed under the Creative Commons Attribution 4.0
+International License under the terms and conditions set forth in the file
+"LICENSE.docs". You may obtain a duplicate copy of the same license, titled
+CC-BY-SA-4.0, at http://creativecommons.org/licenses/by/4.0/.
