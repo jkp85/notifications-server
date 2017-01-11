@@ -13,4 +13,6 @@ RUN npm install
 
 EXPOSE 3000
 
+WORKDIR /usr/src/app
+
 CMD ["npm", "start"]
