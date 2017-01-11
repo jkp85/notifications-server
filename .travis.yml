@@ -22,11 +22,11 @@ after_script:
   - docker tag $DOCKER_IMAGE_NAME $DOCKER_IMAGE_NAME:build-$TRAVIS_BUILD_NUMBER
   # push  both images
   - docker push $DOCKER_IMAGE_NAME:build-$TRAVIS_BUILD_NUMBER
-  
-after_success:
   - if [ "$TRAVIS_PULL_REQUEST" == "false" ] && [ "$TRAVIS_BRANCH" == "master" ]; then
      docker push $DOCKER_IMAGE_NAME:latest;
     fi
+    
+after_success:  
   - bash <(curl -s https://codecov.io/bash)
 
 notifications:
