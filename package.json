@@ -4,7 +4,7 @@
   "description": "Microservice to emit the hubserver notifications to the clients",
   "main": "app.js",
   "dependencies": {
-    "body-parser": "^1.15.2",
+    "body-parser": "^1.16.0",
     "express": "^4.14.0",
     "redis": "^2.6.2",
     "socket.io": "^1.4.8"
